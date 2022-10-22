@@ -18,8 +18,7 @@ const userSchema =  new mongoose.Schema ({ //for encryption
   email:String,
   password:String
 });
-//const secret = "Thisisourlittlesecret."; add this before creating User collections but it actually place din .env file
-//we use process.env.SECRET for accessing secret from .env file
+
 userSchema.plugin(encrypt, {secret:process.env.SECRET,encryptedFields: ["password"] }); //for encrypting particular fields we use encryptedFields here we only want password if we wandt any other put comma after password and continue
 
 //encrypt when save and decrypt when find
